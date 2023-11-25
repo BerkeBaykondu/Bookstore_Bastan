@@ -1,0 +1,19 @@
+# docker-compose.prod.yml
+
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '80:3000'
+    environment:
+      NODE_ENV: production
+    restart: always
+    depends_on:
+      - mongodb
+  mongodb:
+    image: 'mongo:latest'
+    ports:
+      - '27017:27017'
