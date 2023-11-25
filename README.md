@@ -21,18 +21,56 @@ Proje Özeti:
 
 Proje kullanıcıların kitaplar hakkında yorum yapıp puanlayabildiği ve adminlerin kullanıcı yetkisini değiştirebildiği bir uygulama ( hafif yarıda kaldı).
 
-Postman Sorgularım:
-auth/register => kullanıcı  kaydolur
-auth/ login => kullanıcı login olur
-auth/google/login -> oauth 2.0 ile kullanıcı giriş yapar ve verisetine girişi kaydedilir.
-auth/adminchange -> admin kullanıcının yetkisini değiştirir. isActiveyi true den false, false den true yapar.
-admin/register -> admin kayıt olur
-admin/login -> admin login yapar
-books/add -> admin verisetine kitap ekler.
-books/update -> admin kitap infosunu listeler
-books/delete -> admin kitap siler
-books/paginate -> kitaplar paginate bir biçimde listelenir.
-books/comment -> kullanıcı kitaba yorum yazıp puan verir
-(puana göre sıralama işlemini yapmadım ama ilerde ekleyebilirim)
+## Postman Sorguları
+
+### Kullanıcı İşlemleri
+
+- **Kullanıcı Kaydı (Register):**
+  - **Endpoint:** `/auth/register`
+  - **Açıklama:** Kullanıcı, bu endpoint üzerinden kayıt olabilir.
+
+- **Kullanıcı Girişi (Login):**
+  - **Endpoint:** `/auth/login`
+  - **Açıklama:** Kullanıcı, bu endpoint üzerinden giriş yapabilir.
+
+- **Google OAuth ile Kullanıcı Girişi:**
+  - **Endpoint:** `/auth/google/login`
+  - **Açıklama:** OAuth 2.0 protokolü kullanılarak Google hesabı ile kullanıcı girişi sağlanır ve veritabanına kaydedilir.
+
+- **Admin Yetkisi Değiştirme:**
+  - **Endpoint:** `/auth/adminchange`
+  - **Açıklama:** Admin, bu endpoint ile kullanıcının yetkisini değiştirebilir. `isActive` değeri true'dan false'a veya false'dan true'ya çevrilebilir.
+
+### Admin İşlemleri
+
+- **Admin Kaydı:**
+  - **Endpoint:** `/admin/register`
+  - **Açıklama:** Admin, bu endpoint üzerinden kayıt olabilir.
+
+- **Admin Girişi:**
+  - **Endpoint:** `/admin/login`
+  - **Açıklama:** Admin, bu endpoint üzerinden giriş yapabilir.
+
+### Kitap İşlemleri
+
+- **Kitap Ekleme:**
+  - **Endpoint:** `/books/add`
+  - **Açıklama:** Admin, bu endpoint ile veritabanına yeni bir kitap ekleyebilir.
+
+- **Kitap Bilgisi Güncelleme:**
+  - **Endpoint:** `/books/update`
+  - **Açıklama:** Admin, bu endpoint ile mevcut kitap bilgilerini güncelleyebilir.
+
+- **Kitap Silme:**
+  - **Endpoint:** `/books/delete`
+  - **Açıklama:** Admin, bu endpoint ile bir kitabı veritabanından silebilir.
+
+- **Sayfalı Kitap Listesi:**
+  - **Endpoint:** `/books/paginate`
+  - **Açıklama:** Kitaplar sayfalı bir şekilde listelenir. Bunu jwt yetkisi olmasada herkes görebilir (Puana göre sıralama işlemi şu an için yapılmamıştır, ilerleyen süreçte eklenebilir.)
+
+- **Kitap Yorum ve Puanlama:**
+  - **Endpoint:** `/books/comment`
+  - **Açıklama:** Kullanıcı, bu endpoint ile bir kitaba yorum yazabilir ve puan verebilir.
 
 
